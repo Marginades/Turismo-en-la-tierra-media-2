@@ -1,17 +1,17 @@
 ----------------------ponerles nombres y cambiar las atracciones por los id
 
 INSERT INTO promocion (nombre, tipo_atracciones, atraccion_gratis) VALUES
-('Promocion 2x1 Aventura en las montañas', 'AVENTURA', 'Montañas Asperas'),
-('Promocion 2x1 Paseo Costero', 'AVENTURA', Montañas de 'Angmar'),
-('Promocion 2x1 Caminata por los senderos', 'AVENTURA', 'Bosque Negro'),
+('Aventura en las montañas', 'AVENTURA', '6'),
+('Paseo Costero', 'AVENTURA', '5'),
+('Caminata por los senderos', 'AVENTURA', '3'),
 
-('Promocion 2x1 Aventura en las montañas', 'DEGUSTACION', 'Cardolan'),
-('Promocion 2x1 Paseo Costero, 'DEGUSTACION', 'Montañas Azules'),
-('Promocion 2x1 Caminata por los senderos', 'DEGUSTACION', 'Camino del viejo bosque'),
+('Festin Medieval', 'DEGUSTACION', '14'),
+('Delicias Alpinas', 'DEGUSTACION', '13'),
+('Sabores Élficos', 'DEGUSTACION', '11'),
 
-('Promocion 2x1 Promocion 2x1', 'PAISAJE', 'Minas Tirith'),
-('Promocion 2x1 Promocion 2x1', 'PAISAJE', 'Colinas de Hierro'),
-('Promocion 2x1 Promocion 2x1', 'PAISAJE', 'Harondor');
+('Ver y disfrutar', 'PAISAJE', '25'),
+('Grandes miradores', 'PAISAJE', '22'),
+('Vistas magnificas', 'PAISAJE', '16');
 
 AXB-Aventura-Promocion 2x1 Aventura en las montañas-Montañas Asperas-Meseta de Gorgoroth/Montañas de Angmar
 AXB-Aventura-Promocion 2x1 Paseo Costero-Montañas de Angmar-Bahia de Forochel/Mar de Nurnen
@@ -29,17 +29,17 @@ AXB-Paisaje-Promocion 2x1s-Harondor-Abismo de Helm/Belfalas
 -----------------------------------CAMBIAR NOMBRES
 INSERT INTO promocion (nombre, tipo_atracciones, descuento) VALUES
 
-(Promocion Porcentual, AVENTURA, 0.2),
-(Promocion Porcentual, AVENTURA, 0.1),
-(Promocion Porcentual, AVENTURA, 0.15),
+('Triple aventura', 'AVENTURA', '0.2'),
+('Caminata M', 'AVENTURA', '0.1'),
+('Aventura de terror', 'AVENTURA', '0.15'),
 
-(Promocion Porcentual, DEGUSTACION, 0.1),
-(Promocion Porcentual, DEGUSTACION, 0.25),
-(Promocion Porcentual, DEGUSTACION, 0.2),
+('Sabores tradicionales', 'DEGUSTACION', '0.1'),
+('Paladares inquietos', 'DEGUSTACION', '0.25'),
+('Sabores exoticos', 'DEGUSTACION', '0.2'),
 
-(Promocion Porcentual, PAISAJE, 0.2),
-(Promocion Porcentual, PAISAJE, 0.15),
-(Promocion Porcentual, PAISAJE, 0.1);
+('Ver para creer', 'PAISAJE', '0.2'),
+('Vistas marítimas', 'PAISAJE', '0.15'),
+('Mirar hacia el norte', 'PAISAJE', '0.1');
 
 
 PORCENTUAL-Aventura-Promocion Porcentual-0.2-Moria/Montañas de Angmar/Bahia de Forochel
@@ -57,17 +57,17 @@ PORCENTUAL-Paisaje-Promocion Porcentual-0.1-Torre Oscura/Harondor
 -------------------------------------CAMBIAR NOMBRES
 INSERT INTO promocion (nombre, tipo_atracciones, costo) VALUES
 
-(Promocion Absoluta, AVENTURA, 40),
-(Promocion Absoluta, AVENTURA, 80),
-(Promocion Absoluta, AVENTURA, 20),
+('Caminata en la montaña', 'AVENTURA', '40'),
+('4 en 1', 'AVENTURA', '80'),
+('En subida', 'AVENTURA', '20'),
 
-(Promocion Absoluta, DEGUSTACION, 40),
-(Promocion Absoluta, DEGUSTACION, 80),
-(Promocion Absoluta, DEGUSTACION, 20),
+('Saboresinesperados', 'DEGUSTACION', '40'),
+('Delicias dulces', 'DEGUSTACION', '80'),
+('El plato fuerte', 'DEGUSTACION', '20'),
 
-(Promocion Absoluta, PAISAJE, 50),
-(Promocion Absoluta, PAISAJE, 60),
-(Promocion Absoluta, PAISAJE, 80);
+('Paisajes élficos', 'PAISAJE', '50'),
+('Vistas marítimas', 'PAISAJE', '60'),
+('Paisajes increíbles', 'PAISAJE', '80');
 
 
 ABSOLUTA-Aventura-Promocion Absoluta-40-Montañas Asperas/Meseta de Gorgoroth/Montañas de Angmar
