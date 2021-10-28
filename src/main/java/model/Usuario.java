@@ -8,10 +8,10 @@ public class Usuario {
 	private String nombre;
 	private double presupuesto;
 	private double disponibilidad;
-	private TipoDeAtraccion preferencia;
+	private String preferencia;
 	private List<Comprable> itinerario;
 
-	public Usuario(String nombre, double presupuesto, double disponibilidad, TipoDeAtraccion preferencia) {
+	public Usuario(String nombre, double presupuesto, double disponibilidad, String preferencia) {
 		this.nombre = nombre;
 		this.setPresupuesto(presupuesto);
 		this.setDisponibilidad(disponibilidad);
@@ -68,7 +68,7 @@ public class Usuario {
 		this.disponibilidad = disponibilidad;
 	}
 
-	public TipoDeAtraccion getPreferencia() {
+	public String getPreferencia() {
 		return this.preferencia;
 	}
 

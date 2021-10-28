@@ -3,9 +3,9 @@ package model;
 import java.util.Comparator;
 
 public class ComparadorDeComprables implements Comparator<Comprable> {
-	private TipoDeAtraccion preferencia;
+	private String preferencia;
 
-	public ComparadorDeComprables(TipoDeAtraccion preferencia) {
+	public ComparadorDeComprables(String preferencia) {
 		this.preferencia = preferencia;
 	}
 

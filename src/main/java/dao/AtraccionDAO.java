@@ -29,20 +29,31 @@ public class AtraccionDAO {
 			PreparedStatement statement = conn.prepareStatement(query);
 			ResultSet results = statement.executeQuery();
 
-			List<Comprable> bandas = new LinkedList<Comprable>();
+			List<Comprable> atracciones = new LinkedList<Comprable>();
 			while (results.next()) {
-				bandas.add((Comprable) toAtraccion(results));
+				atracciones.add((Comprable) toAtraccion(results));
 			}
-			return bandas;
+			return atracciones;
 
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
 	}
 
-	public int update(Comprable t) {
-		return 0;
+	public int updateCupo(Comprable t, int entradasVendidas) {
+		try {
+		String query = "UPDATE ATRACCION SET CUPO - ? WHERE NOMBRE = ?";
+		Connection conn = ConnectionProvider.getConnection();
+		
+		PreparedStatement statement = conn.prepareStatement(query);
+			statement.setInt(1, t.getEntradasVendidas());
+			statement.setString(2, t.getNombre());
+			return statement.executeUpdate();
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
+	
 	
 	public int insert(Comprable atraccion) {
 		try {

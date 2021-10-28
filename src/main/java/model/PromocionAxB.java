@@ -7,7 +7,7 @@ public class PromocionAxB extends Promocion {
 
 	private Comprable atraccionGratis;
 
-	public PromocionAxB(TipoDeAtraccion tipo, String nombre, Comprable atraccionGratis, LinkedList<Comprable> atracciones) {
+	public PromocionAxB(String tipo, String nombre, Comprable atraccionGratis, LinkedList<Comprable> atracciones) {
 		super(tipo, atracciones, nombre);
 		this.setAtraccionGratis(atraccionGratis);
 	}
@@ -91,6 +91,12 @@ public class PromocionAxB extends Promocion {
 			entradas += atraccion.getEntradasVendidas();
 		}
 		return entradas + atraccionGratis.getEntradasVendidas();
+	}
+
+	@Override
+	public int getCupo() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

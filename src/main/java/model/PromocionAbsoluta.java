@@ -6,7 +6,7 @@ public class PromocionAbsoluta extends Promocion {
 
 	private int descuento;
 
-	public PromocionAbsoluta(TipoDeAtraccion tipo, String nombre, int descuento, LinkedList<Comprable> atracciones) {
+	public PromocionAbsoluta(String tipo, String nombre, int descuento, LinkedList<Comprable> atracciones) {
 		super(tipo, atracciones, nombre);
 		this.setPrecio(descuento);
 	}
@@ -41,6 +41,12 @@ public class PromocionAbsoluta extends Promocion {
 	public boolean esComprablePor(Usuario user) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public int getCupo() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

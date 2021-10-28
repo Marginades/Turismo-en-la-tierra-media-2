@@ -5,14 +5,16 @@ public class Atraccion implements Comprable {
 	private String nombre;
 	private double costo;
 	private double duracion;
-	private int cupo;
 	private String tipo;
+	private int entradasVendidas = 0;
+	private int cupoMaximo;
 
-	public Atraccion(int id_atracion, String nombre, double costo, double duracion, int cupo, String tipo) {
+	public Atraccion(int id_atraccion, String nombre, double costo, double duracion, int cupo, String tipo){
+		this.id_atraccion = id_atraccion;
 		this.nombre = nombre;
 		this.costo = costo;
 		this.duracion = duracion;
-		this.cupo = cupo;
+		this.cupoMaximo = cupo;
 		this.tipo = tipo;
 	}
 
@@ -42,7 +44,7 @@ public class Atraccion implements Comprable {
 		return this.entradasVendidas < this.cupoMaximo;
 	}
 
-	public int getCupoMaximo() {
+	public int getCupo() {
 		return this.cupoMaximo;
 	}
 
