@@ -40,13 +40,13 @@ public class AtraccionDAO {
 		}
 	}
 
-	public int updateCupo(Comprable t, int entradasVendidas) {
+	public int updateCupo(Comprable t) {
 		try {
-		String query = "UPDATE ATRACCION SET CUPO - ? WHERE NOMBRE = ?";
+		String query = "UPDATE ATRACCION SET CUPO = ? WHERE NOMBRE = ?";
 		Connection conn = ConnectionProvider.getConnection();
 		
 		PreparedStatement statement = conn.prepareStatement(query);
-			statement.setInt(1, t.getEntradasVendidas());
+			statement.setInt(1, t.getCupo() - 1);
 			statement.setString(2, t.getNombre());
 			return statement.executeUpdate();
 		} catch (Exception e) {

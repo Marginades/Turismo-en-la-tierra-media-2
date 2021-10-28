@@ -9,7 +9,6 @@ public class ComparadorDeComprables implements Comparator<Comprable> {
 		this.preferencia = preferencia;
 	}
 
-	@Override
 	public int compare(Comprable c1, Comprable c2) {
 		if (this.preferencia == c1.getTipo() && this.preferencia != c2.getTipo())
 			return -1;

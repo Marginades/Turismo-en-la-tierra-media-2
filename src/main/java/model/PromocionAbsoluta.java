@@ -4,16 +4,13 @@ import java.util.LinkedList;
 
 public class PromocionAbsoluta extends Promocion {
 
-	private int descuento;
+	private int precio;
 
-	public PromocionAbsoluta(String tipo, String nombre, int descuento, LinkedList<Comprable> atracciones) {
-		super(tipo, atracciones, nombre);
-		this.setPrecio(descuento);
+	public PromocionAbsoluta(int id, String tipo, String nombre, int precio, LinkedList<Comprable> atracciones) {
+		super(id, tipo, atracciones, nombre);
+		this.precio = precio;
 	}
 
-	public int getDescuento() {
-		return this.descuento;
-	}
 
 	@Override
 	public String toString() {
@@ -26,24 +23,16 @@ public class PromocionAbsoluta extends Promocion {
 	}
 
 	@Override
-	public double getCosto() {
-		double precio = super.getCosto();
-		return precio - this.descuento;
+	public int getCosto() {
+		int precio = super.getCosto();
+		return precio - this.precio;
 	}
 
-	private void setPrecio(int precio) {
-		if (precio <= 0)
-			throw new MontoInvalidoException("El monto debe ser mayor a 0");
-		this.descuento = precio;
-	}
-
-	@Override
 	public boolean esComprablePor(Usuario user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public int getCupo() {
 		// TODO Auto-generated method stub
 		return 0;

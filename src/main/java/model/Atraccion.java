@@ -3,13 +3,13 @@ package model;
 public class Atraccion implements Comprable {
 	private int id_atraccion;
 	private String nombre;
-	private double costo;
+	private int costo;
 	private double duracion;
 	private String tipo;
 	private int entradasVendidas = 0;
 	private int cupoMaximo;
 
-	public Atraccion(int id_atraccion, String nombre, double costo, double duracion, int cupo, String tipo){
+	public Atraccion(int id_atraccion, String nombre, int costo, double duracion, int cupo, String tipo){
 		this.id_atraccion = id_atraccion;
 		this.nombre = nombre;
 		this.costo = costo;
@@ -19,29 +19,20 @@ public class Atraccion implements Comprable {
 	}
 
 	// Metodos Overrride de Comprable
-	@Override
 	public String getNombre() {
 		return nombre;
 	}
 
-	@Override
-	public double getCosto() {
+	public int getCosto() {
 		return this.costo;
 	}
 
-	@Override
 	public double getDuracion() {
 		return this.duracion;
 	}
 
-	@Override
 	public String getTipo() {
 		return tipo;
-	}
-
-	@Override
-	public boolean hayCupo() {
-		return this.entradasVendidas < this.cupoMaximo;
 	}
 
 	public int getCupo() {
@@ -52,44 +43,31 @@ public class Atraccion implements Comprable {
 		return this.entradasVendidas;
 	}
 
-	// Setters con excepciones
-	private void setCosto(int costo) {
-		if (costo < 0)
-			throw new MontoInvalidoException("El monto debe ser mayor a 0");
-		this.costo = costo;
+	public int getId() {
+		return id_atraccion;
+	}
+	
+	public boolean hayCupo() {
+		return this.entradasVendidas < this.cupoMaximo;
 	}
 
-	private void setDuracion(double duracion) {
-		if (duracion <= 0)
-			throw new DuracionInvalidaException("La duracion debe ser mayor a 0");
-		this.duracion = duracion;
-	}
-
-	private void setCupoMaximo(int cupoMaximo) {
-		if (cupoMaximo <= 0)
-			throw new CupoMaximoInvalidoException("El cupo debe ser mayor a 0");
-		this.cupoMaximo = cupoMaximo;
-	}
 
 	// Modifica el atributo entradasVendidas
-	public void comprarLugar() {
+	public void comprarLugar() throws Exception {
 		if (!this.hayCupo())
-			throw new CupoMaximoAlcanzadoException("No Hay Mas Lugar");
+			throw new Exception("No Hay Mas Lugar");
 		this.entradasVendidas += 1;
 	}
 
-	@Override
 	public boolean esOContiene(Comprable c) {
 		return this.equals(c);
 	}
 
-	@Override
 	public boolean esComprablePor(Usuario user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public boolean esPromocion() {
 		return false;
 	}
@@ -99,4 +77,5 @@ public class Atraccion implements Comprable {
 	public String toString() {
 		return "Llevá " + this.nombre + " por " + this.costo + " monedas de oro";
 	}
+
 }

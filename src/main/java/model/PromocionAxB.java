@@ -7,9 +7,9 @@ public class PromocionAxB extends Promocion {
 
 	private Comprable atraccionGratis;
 
-	public PromocionAxB(String tipo, String nombre, Comprable atraccionGratis, LinkedList<Comprable> atracciones) {
-		super(tipo, atracciones, nombre);
-		this.setAtraccionGratis(atraccionGratis);
+	public PromocionAxB(int id, String tipo, String nombre, Comprable atraccionGratis, LinkedList<Comprable> atracciones) {
+		super(id, tipo, atracciones, nombre);
+		this.atraccionGratis = atraccionGratis;
 	}
 
 	public Comprable getAtraccionGratis() {
@@ -40,19 +40,13 @@ public class PromocionAxB extends Promocion {
 	}
 
 	@Override
-	public double getCosto() {
+	public int getCosto() {
 		return super.getCosto();
 	}
 
 	@Override
 	public double getDuracion() {
 		return super.getDuracion() + atraccionGratis.getDuracion();
-	}
-
-	private void setAtraccionGratis(Comprable atraccionGratis) {
-		if (!(this.getTipo() == atraccionGratis.getTipo()))
-			throw new TipoInvalidoException("La atraccion debe ser del mismo tipo que la promoción");
-		this.atraccionGratis = atraccionGratis;
 	}
 
 	@Override
@@ -71,13 +65,12 @@ public class PromocionAxB extends Promocion {
 		}
 	}
 
-	@Override
 	public boolean esComprablePor(Usuario user) {
 		return false;
 	}
 
 	@Override
-	public void comprarLugar() {
+	public void comprarLugar() throws Exception {
 		for (Comprable a : this.atracciones) {
 			a.comprarLugar();
 		}
@@ -93,7 +86,6 @@ public class PromocionAxB extends Promocion {
 		return entradas + atraccionGratis.getEntradasVendidas();
 	}
 
-	@Override
 	public int getCupo() {
 		// TODO Auto-generated method stub
 		return 0;

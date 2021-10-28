@@ -2,9 +2,11 @@ package model;
 
 public interface Comprable {
 	
+	public int getId();
+	
 	public String getNombre();
 	
-	public double getCosto();
+	public int getCosto();
 
 	public double getDuracion();
 
@@ -18,7 +20,7 @@ public interface Comprable {
 	
 	public boolean hayCupo();
 
-	public void comprarLugar();
+	public void comprarLugar() throws Exception;
 
 	public boolean esPromocion();
 	

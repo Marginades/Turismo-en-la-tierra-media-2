@@ -6,10 +6,10 @@ public class PromocionPorcentual extends Promocion {
 
 	private double descuento;
 
-	public PromocionPorcentual(String tipo, String nombre, double descuento,
+	public PromocionPorcentual(int id, String tipo, String nombre, double descuento,
 			LinkedList<Comprable> atracciones) {
-		super(tipo, atracciones, nombre);
-		this.setDescuento(descuento);
+		super(id, tipo, atracciones, nombre);
+		this.descuento = descuento;
 	}
 
 	public double getDescuento() {
@@ -28,25 +28,17 @@ public class PromocionPorcentual extends Promocion {
 	}
 
 	@Override
-	public double getCosto() {
-		double precio = super.getCosto();
+	public int getCosto() {
+		int precio = super.getCosto();
 		double descuento = precio * this.descuento;
-		return precio - descuento;
+		return (int) (precio - descuento);
 	}
 
-	private void setDescuento(double descuento) {
-		if (descuento <= 0 || descuento >= 1)
-			throw new DescuentoInvalidoException("El descuento ingresado debe ser menor a 1 y mayor a 0");
-		this.descuento = descuento;
-	}
-
-	@Override
 	public boolean esComprablePor(Usuario user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public int getCupo() {
 		// TODO Auto-generated method stub
 		return 0;

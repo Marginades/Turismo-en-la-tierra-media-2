@@ -3,25 +3,17 @@ package model;
 import java.util.List;
 
 public abstract class Promocion implements Comprable {
+	protected int id_promo;
 	protected List<Comprable> atracciones;
 	protected String tipo;
 	protected String nombre;
 
 	// Constructor
-	public Promocion(String tipo, List<Comprable> atracciones, String nombre) {
+	public Promocion(int id, String tipo, List<Comprable> atracciones, String nombre) {
+		this.id_promo = id;
 		this.tipo = tipo;
 		this.nombre = nombre;
-		this.atracciones = this.setAtracciones(atracciones);
-	}
-
-	private List<Comprable> setAtracciones(List<Comprable> atracciones) {
-		for (Comprable a : atracciones) {
-			if (a.getTipo() != this.tipo) {
-				throw new TipoInvalidoException(
-						"Una de las atracciones ingresadas no es del mismo tipo que la promcion");
-			}
-		}
-		return atracciones;
+		this.atracciones = atracciones;
 	}
 
 	protected List<Comprable> getAtracciones() {
@@ -29,18 +21,19 @@ public abstract class Promocion implements Comprable {
 	}
 
 	// Metodos Overrride de Comprable
-	@Override
+	public int getId() {
+		return this.id_promo;
+	}
+	
 	public String getNombre() {
 		return this.nombre;
 	}
 
-	@Override
 	public String getTipo() {
 		return this.tipo;
 	}
 
-	@Override
-	public double getCosto() {
+	public int getCosto() {
 		int contador = 0;
 		for (Comprable atraccion : this.atracciones) {
 			contador += atraccion.getCosto();
@@ -48,7 +41,6 @@ public abstract class Promocion implements Comprable {
 		return contador;
 	}
 
-	@Override
 	public double getDuracion() {
 		double duracion = 0;
 		for (Comprable a : this.atracciones) {
@@ -57,7 +49,6 @@ public abstract class Promocion implements Comprable {
 		return duracion;
 	}
 
-	@Override
 	public boolean hayCupo() {
 		for (Comprable a : this.atracciones) {
 			if (!a.hayCupo()) {
@@ -67,7 +58,6 @@ public abstract class Promocion implements Comprable {
 		return true;
 	}
 
-	@Override
 	public int getEntradasVendidas() {
 		int entradas = 0;
 		for (Comprable atraccion : this.atracciones) {
@@ -76,8 +66,7 @@ public abstract class Promocion implements Comprable {
 		return entradas;
 	}
 
-	@Override
-	public void comprarLugar() {
+	public void comprarLugar() throws Exception {
 		for (Comprable a : this.atracciones) {
 			a.comprarLugar(); // este metodo ya captura la excepcion en la clase atraccion
 		}
@@ -87,7 +76,6 @@ public abstract class Promocion implements Comprable {
 		return true;
 	}
 
-	@Override
 	public boolean esOContiene(Comprable atraccion) {
 		for (Comprable a : this.atracciones) {
 			if (atraccion.equals(a)) {
