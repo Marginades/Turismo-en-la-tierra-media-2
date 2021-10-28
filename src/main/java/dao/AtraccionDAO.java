@@ -43,5 +43,36 @@ public class AtraccionDAO {
 	public int update(Comprable t) {
 		return 0;
 	}
+	
+	public int insert(Comprable atraccion) {
+		try {
+			String query = "INSERT INTO ATRACCION (NOMBRE, COSTO, DURACION, CUPO, TIPO) VALUES(?, ?, ?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, atraccion.getNombre());
+			statement.setDouble(2, atraccion.getCosto());
+			statement.setDouble(3, atraccion.getDuracion());
+			statement.setInt(4, atraccion.getCupo());
+			statement.setString(5, atraccion.getTipo());
+			return statement.executeUpdate();
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	public int delete(Comprable atraccion) {
+		try {
+			String query = "DELETE FROM ATRACCION WHERE NOMBRE = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, atraccion.getNombre());
+			return statement.executeUpdate();
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+
+	}
 
 }
