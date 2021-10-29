@@ -47,26 +47,44 @@ public class ItinerarioDAO {
 		}
 	}
 	
-	public int insert2(Usuario u, Comprable c) {
+/*	public int insert2(Usuario u, Comprable c) {
 		
-	}
-/*
- * saveItinerario(Usuario u) {
+	}*/
+	
+	public int saveItinerario(Usuario u, Comprable c) {
 		Connection conn;
 		try {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
-			UPDATE USARIO
-			for(atraccion comprada) {
-				INSERT ITENERARIO
-				UPDATE ATRACCION
+			//UPDATE USUARIO
+			
+			String query = "UPDATE USUARIO SET TIEMPO = ? WHERE NOMBRE = ?";
+			PreparedStatement statement1 = conn.prepareStatement(query);
+			statement1.setDouble(1, c.getDuracion());
+			statement1.setString(2, u.getNombre());
+			return statement1.executeUpdate();
+			
+			if(! (c.esPromocion())) {
+				String query2 = "INSERT INTO ITINERARIO VALUES (?, NULL, ?)";
+				PreparedStatement statement2 = conn.prepareStatement(query2);
+				statement2.setInt(1, c.getId());
+				statement2.setInt(2, u.getId());
+				return statement2.executeUpdate();
+			}else {
+				for(Comprable c : c.get)
+				
+			
+			//	for() {
+					//INSERT ITENERARIO
+					//UPDATE ATRACCION
+			//	}
 			}
-		} catch (SQLException e) {
+		}catch (SQLException e) {
 			conn.rollback();
 		} finally {
 			conn.commit();
 		}
 	}
 	
-	*/
+
 }

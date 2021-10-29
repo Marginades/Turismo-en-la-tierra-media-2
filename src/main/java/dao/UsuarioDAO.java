@@ -12,7 +12,7 @@ public class UsuarioDAO {
 	
 	public int updateTiempo(Usuario t, int tiempoOcupado) {
 		try {
-		String query = "UPDATE USUARIO SET TIEMPO - ? WHERE NOMBRE = ?";
+		String query = "UPDATE USUARIO SET TIEMPO = ? WHERE NOMBRE = ?";
 		Connection conn = ConnectionProvider.getConnection();
 		
 		PreparedStatement statement = conn.prepareStatement(query);
