@@ -16,7 +16,7 @@ public abstract class Promocion implements Comprable {
 		this.atracciones = atracciones;
 	}
 
-	protected List<Comprable> getAtracciones() {
+	public List<Comprable> getAtracciones() {
 		return this.atracciones;
 	}
 

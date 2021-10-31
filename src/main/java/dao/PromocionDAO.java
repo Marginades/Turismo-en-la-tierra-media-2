@@ -86,5 +86,20 @@ public class PromocionDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
+	public int updateCupoPromocion(Promocion promo) {
+		AtraccionDAO at = new AtraccionDAO();
+		int r = 0;
+		try {
+			for (Comprable a : promo.getAtracciones()) {
+				at.updateCupo(a);
+			r +=  at.updateCupo(a);	
+			}
+
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+		return r;
+	}
 
 }
